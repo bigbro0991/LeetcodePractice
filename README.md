@@ -9,18 +9,18 @@
 22. Generate Parentheses
 
 ```diff
-!插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
+插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 ```
 32. Longest Valid Parentheses
 
 ```diff
-!stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack[-1][1]）
+stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack[-1][1]）
 ```
 
 48. Rotate Image 
 
 ```diff
-! 先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  ```
+!先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  ```
 ```
 
 49. Group Anagrams:
@@ -40,7 +40,7 @@ Also str can not str.sort() but can sorted(str) ex: sorted(‘eat’)=[‘a’,�
 54. Spiral Matrix 
 
 ```diff
-! While matrix 不停的pop 指导matrix 没了 先pop出第一行然后剩下每一行最后一个然后pop最后一行的倒叙 然后pop倒叙的每行的第一个 
+While matrix 不停的pop 指导matrix 没了 先pop出第一行然后剩下每一行最后一个然后pop最后一行的倒叙 然后pop倒叙的每行的第一个 
 ```
 
 59. Spiral Matrix II
