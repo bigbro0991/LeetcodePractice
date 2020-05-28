@@ -1,34 +1,23 @@
 # Leetcode Code Practice
 
-<<<<<<< HEAD
-<font face="黑体">我是黑体字</font>
 
-22. Generate Parentheses
-=======
+
 22. Generate Parentheses
 
 ```diff
-
-- red
-
-+ green
-
-! orange
-
-# gray
-
+#插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 ```
->>>>>>> d114c9771081349868d42ce39e89857899338288
+32. Longest Valid Parentheses
 
-##### 插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
-
-\32. Longest Valid Parentheses
-
-stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack【-1】【1】）
+```diff
+#stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack【-1】【1】）
+```
 
 
 
-\48. Rotate Image 
+
+
+48. Rotate Image 
 
 先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  
 
