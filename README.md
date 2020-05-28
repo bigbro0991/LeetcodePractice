@@ -6,62 +6,56 @@
 -红色 -> 不熟悉
 ```
 
-$lim_{x \to \infty} \ exp(-x)=0$
-
-```php+HTML
-$lim_{x \to \infty} \ exp(-x)=0$
-```
-
 22. Generate Parentheses
 
-```diff
+```python
 插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 ```
 32. Longest Valid Parentheses
 
-```diff
+```python
 stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack[-1][1]）
 ```
 
 48. Rotate Image 
 
-```
+```python
 先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  ```
 ```
 
 49. Group Anagrams:
 
-```Hash table’s key can not be list can use tuple(list) as a substitute
+```python
 Also str can not str.sort() but can sorted(str) ex: sorted(‘eat’)=[‘a’,’e’,’t’]
 ```
 
 45. Jump Game II
 
-```
+```python
 设置cur_cover：每次cover都在延伸 因为 cur_cover =max(cur_cover,nums[I]+i) 但是当curcover =last时step才+1 次是 last=curcover （last初始值为0）
 
 如果cur_cover  destination return step
 ```
 
-54 Spiral Matrix 
+54. Spiral Matrix 
 
-```
+```python
 While matrix 不停的pop 指导matrix 没了 先pop出第一行然后剩下每一行最后一个然后pop最后一行的倒叙 然后pop倒叙的每行的第一个 
 ```
 
 59. Spiral Matrix II
 
-```
-造一个matrix matrix[I][j]=(i,j) 利用spiral matrix while matrix 每次pop 出位置 位置存那个该存的值
+```python
+造一个 matrix matrix[i][j]=(i,j) 利用spiral matrix while matrix 每次pop 出位置 位置存那个该存的值
 ```
 
-61: Rotate List: 
+61. Rotate List: 
 
-```
+```python
 因为做同样的操作导致重复的结果出现，用%解决，listnode可以将首尾连接成环然后用prev=None，cur=head 找到要的node然后tail.next=None就可以了。
 ```
 
-76 minimum substring
+76. minimum substring
 
 ```
 
@@ -69,168 +63,205 @@ While matrix 不停的pop 指导matrix 没了 先pop出第一行然后剩下每�
 
 81. Search in Rotated Sorted Array II
 
-```
+```python
 Binary search 变形的 先在顺序里的找找不到就在另一边
 ```
 
 88. Merge sorted array
 
-```
+```python
 从大往小merge 达到in place
 ```
 
-91 decode way:
+91. decode way:
 
-```
+```python
 使用dp F(x)=F(x-1)+F(x-2) F(x)=F(x-1) F(x)=F(x-2)三种情况 x为first x digitals 每次进来一个 判断和前一个是否组成1-26里的字母
 ```
 
-94 Binary tree in-order traversal:
+94. Binary tree in-order traversal:
 
-```
+```python
 Left-root-Right
 Recursion: 先一直递归root.left然后append(root.val)然后递归root.right
 ```
 
+96. Unique Binary Search Tree（DP）
 
+```python
+选择一个n, 那么[1…n] 都可以做root, left subtree 由比root小的组成, 有f(i-1)组合（因为比I小的有i-1个数） 右边有（n-i）个数 能组成f（n-i）个subtrees，然后相乘的到n个数后组成的tree个数
+```
 
-96 Unique Binary Search Tree（DP）
+99. Recover Binary Search Tree
 
-选择一个n, 那么[1…n]都可以做root, left subtree 由比root小的组成, 有f(i-1)组合（因为比I小的有i-1个数） 右边有（n-i）个数 能组成f（n-i）个subtrees，然后相乘的到n个数后组成的tree个数
+```python
+先用inorder traverse 生成一个数组 然后用它和sort过的它对比，如果有不一样，那两个就需要替换。然后再进行recover （遍历所有node=a的node就=b 等于b的就等于a
+```
 
-\99. Recover Binary Search Tree
+102. Binary tree level order traversal:
 
-先用inorder traverse 生成一个数组 然后用它和sort过的它对比，如果有不一样，那两个就需要替换。然后再进行recover （遍历所有node
+```python
+用stack. Stack 每次存每个level的node 然后每次循环pop出来 每个level的node append进res 然后判断这些node是否有下一个level的children 有的话append到level里 然后循环最后append到stack里 每次循环清空nums 和level
+```
 
-）=a的node就=b 等于b的就等于a
+104. maximum depth of BT 
 
-102 Binary tree level order traversal:
-
-用stack. Stack 	每次存每个level的node 然后每次循环pop出来 每个level的node append进res 然后判断这些node是否有下一个level的children 有的话append到level里 然后循环最后append到stack里 每次循环清空nums 和level
-
-104 maximum depth of BT 
-
+```python
 用deque([root,’*’]) 每次popleft()出来的是每一层所有的nodes 每个nodes BFS append进deque 每层之间用‘*’相隔每层元素，当识别到它时 count+=1
+```
 
-105 construct BT from preorder and inorder traversal：
+105. construct BT from preorder and inorder traversal：
 
+```python
 递归，每次preorder 出来的是root 找到root的index 若left没有等于left 就在construct left subtree
+```
 
-106 construct BT from postorder and inorder traversal：
+106. construct BT from postorder and inorder traversal：
 
+```python
 如出一辙，和105一样 但是postorder是left-right-root 用pop()而不是pop(0)每次pop出来的是上一个的右child所以先construct 右子树 然后再左 操作和105一样
+```
 
-111 minimum depth if binary tree:
+111. minimum depth if binary tree:
 
+```python
 BFS 因为是广度优先，所以先处理一个level的nodes 当处理同个level的一个node 为 leaf时 直接return （return early）就是最短的
 
 也可以用recursion， 一直递归到None return 0 每个节点 return 其 left and right 的最小值
+```
 
-120:Triangle:
+120. Triangle:
 
+```python
 DP：n=len(T). 建立一个NxN 的 table DP: top—down 如果没有重叠 直接上一个加下一个 有重叠 下一个等于两个中加同一个小的那一个
+```
 
-123 Best Time to Buy and sell stock III
+123. Best Time to Buy and sell stock III
 
-\# forward traversal, profits record the max profit 
+```python
+forward traversal, profits record the max profit 
+by the ith day, this is the first transaction 
+Return by + after
+backward traversal, max_profit records the max profit
+after the ith day, this is the second transaction   
+```
 
-\# by the ith day, this is the first transaction
+126. Word Ladder II
 
-​                                        Return by + after
-
-\# backward traversal, max_profit records the max profit
-
-\# after the ith day, this is the second transaction   
-
-
-
- \126. Word Ladder II
-
+```python
 建立字典 {cog:dog, log log: lot. Lot:hot dog: dot hot: hit } key是value的转换
+```
 
-130:Surrounded Regions:
+130. Surrounded Regions:
 
+```python
 使用DFS 因为只有‘O’ 在matrix的edge的时候才会不被包围 所有只要搜索是否有‘O’在edge，如果有，将‘O’变成一个符号，然后遍历所有节点，若是特殊符号就把它变回原来的‘O’，如果是‘O’就变成X
+```
 
-131.palindrome partition:
+131. palindrome partition:
 
+```python
 1.recursion：dfs 从长度为1开始 如果是对称，则path+这个字串然后递归除了这个字串之后的字串,等到底了 回溯 进行长度为2 的字串 按照这个规律 递归下去 for ex： aaba—>.   a,a,b,a,ba,ab,aba,aa,b,a,ba,aab,aaba
-
 2.dp
+```
 
-138 copy list with random pointer
+138. copy list with random pointer
 
+```python
 先用dic 存新建的Node with random=none next=none 然后遍历所有node ，dic[node].next=dic[cur.next] dic[node].random=dic[node.random]  在字典内重组
+```
 
-139 word beak
+139. word beak
 
+```python
 Dp: dp[start]=1 然后遍历 若果 s[start:start+len(word)]==word 则这个单词的结尾+1 dp[index+1]=1 进行下一个单词的寻找和判断
+```
 
-\140. Word Break II
+140. Word Break II
 
+```python
 recursion: 利用s.startswith()  循环worddic 如果有word 是 现在s的开头 则进往下递归 s[len(word):] resultOfTheRest=self.helper(s[len(word):],dic,memo)
 
 利用memo 记录，所以一次情况只用算一遍 如果还遇到相同的substring 直接返回 memo[s]的值 
 
 for result in resultOfTheRest:result=word+' '+result res.append(result)
+```
 
+142. Linked List Cycle II:
 
-
-\142. Linked List Cycle II:
-
+```python
 Linklist can be used in hash table
+```
 
-\148. Sort List
+148. Sort List
 
+```python
 Merge sort: 先递归分到只剩下两个，然后再merge
+```
 
-152:maximum product subarray
+152. maximum product subarray
 
+```python
 用两个dp列表
 
 一个存positive，一个存negitive, val=(current, pos[i-1]*current, neg[i-1]*current) pos[I]=max(val) neg[I]=min(val)
+```
 
-154 find minimum in rotated sorted array II
+154. find minimum in rotated sorted array II
 
+```python
 用binary search 其中 若nums[mid]<nums[mid-1]则直接return nums[mid] 如果等于nums[high] 则 high=high-1
+```
 
+156. Binary tree upside down
 
-
-156 Binary tree upside down
-
+```python
 Swap ，recursion 先递归找到最左节点 最左节点就是新的root然后找是否最左节点有右children 如果有 rmost就再往右找 然后 进行swap root rmost.left, rmost.right = newroot, root.right,TreeNode(root.val) 然后return上一层
+```
 
+161. One edit distance
 
-
-161 One edit distance
-
+```python
 遍历一遍 s=s[:i]+t[i]+s[i+1:] break else:s=s[:i]+t[i]+s[I:] break return s==t or s==t[:-1]
+```
 
+163. missing range
 
-
-163 missing range
-
+```python
 当nums[i]> lower 时，res.append(str(lower)+’->’+str(nums[I]-1)). lower=nums[I]+1 I=I+1
+```
 
-173 BTS iterator
+173. BTS iterator
 
+```
 在 init 里 进行inorder traversal left-root—right 然后翻转 每次pop出来的都是最小的
+```
 
-179.Largest number
+179. Largest number
 
+```python
 nums = map(str, nums). t=list(nums). t.sort(key=cmp_to_key(lambda a, b: int(b+a)-int(a+b)))
+```
 
-\187. Repeated DNA Sequences
+187. Repeated DNA Sequences
 
+```
 一个 res set 一个 check set 若这条序列没在check见过 那就add到check里 若见过 就 add到res里
+```
 
-190:
+190. 
 
+```python
 bin()[2:].zfill(32)
+```
 
-198 house robber
+198. house robber
 
+```python
 nums=[0]+nums for i in range(2,len(nums)): nums[i]=max(nums[i-1],nums[i-2]+nums[i])
+```
+
+
 
 201Bitwise AND of Number range
 
