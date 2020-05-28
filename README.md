@@ -1,9 +1,8 @@
 # Leetcode Code Practice Note
 
 ```diff
-黑色->会 
-黄色->需要熟练
-! orange
+黑色->已经熟练 
+!黄色->需要熟练
 -红色->不熟悉
 ```
 
