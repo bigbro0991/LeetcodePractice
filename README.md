@@ -5,37 +5,33 @@
 22. Generate Parentheses
 
 ```diff
-#插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
+插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 ```
 32. Longest Valid Parentheses
 
 ```diff
-#stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack【-1】【1】）
+stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个是不是（ 如果是就pop（） res=Max（res，I-stack[-1][1]）
 ```
-
-
-
-
 
 48. Rotate Image 
 
-先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  
+```
+先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  ```
+```
 
-\49. Group Anagrams:
+49. Group Anagrams:
 
-Hash table’s key can not be list can use tuple(list) as a substitute
-
+```Hash table’s key can not be list can use tuple(list) as a substitute
 Also str can not str.sort() but can sorted(str) ex: sorted(‘eat’)=[‘a’,’e’,’t’]
+```
 
+45. Jump Game II
 
-
-\45. Jump Game II
-
+```
 设置cur_cover：每次cover都在延伸 因为 cur_cover =max(cur_cover,nums[I]+i) 但是当curcover =last时step才+1 次是 last=curcover （last初始值为0）
 
-如果curcover 》 destination returnstep
-
-
+如果cur_cover  destination return step
+```
 
 54 Spiral Matrix 
 
