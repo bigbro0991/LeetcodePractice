@@ -1,13 +1,20 @@
 # Leetcode Code Practice Note
 
 ```diff
-黑色->已经熟练 
-!黄色->需要熟练
--红色->不熟悉
-$\textcolor{GreenYellow}{GreenYellow} $
+ 黑色 -> 已经熟练 
+!橘色 -> 需要熟练
+-红色 -> 不熟悉
 ```
 
 
+
+```html
+|姓名|性别|毕业学校|工资|
+|:---|:---:|:---:|---:|
+|杨洋|男|重庆交通大学|3200|
+|峰哥|男|贵州大学|5000|
+|坑货|女|北京大学|2000|
+```
 
 22. Generate Parentheses
 
