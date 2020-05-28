@@ -8,7 +8,7 @@
 
 22. Generate Parentheses
 
-```python
+```diff
 +插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 ```
 32. Longest Valid Parentheses
