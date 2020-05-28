@@ -20,7 +20,7 @@ stack,res=[(-1,“)”)], 0 如果遇到“）” 判断如果stack最后一个�
 48. Rotate Image 
 
 ```diff
-!先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  ```
+先转置，for I in range(n) :for j in range(i) : A[I][j],A[j][I]=A[j][I],A[I][j],然后每row 开始前后换 可以用 x 和 ~x  ```
 ```
 
 49. Group Anagrams:
