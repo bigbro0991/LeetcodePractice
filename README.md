@@ -1,8 +1,24 @@
 # Leetcode Code Practice
 
+<<<<<<< HEAD
 <font face="黑体">我是黑体字</font>
 
 22. Generate Parentheses
+=======
+22. Generate Parentheses
+
+```diff
+
+- red
+
++ green
+
+! orange
+
+# gray
+
+```
+>>>>>>> d114c9771081349868d42ce39e89857899338288
 
 ##### 插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 
