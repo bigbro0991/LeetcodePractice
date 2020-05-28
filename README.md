@@ -1,4 +1,11 @@
-# Leetcode Code Practice
+# Leetcode Code Practice Note
+
+```diff
+黑色->会 
+黄色->需要熟练
+! orange
+-红色->不熟悉
+```
 
 
 
@@ -35,39 +42,54 @@ Also str can not str.sort() but can sorted(str) ex: sorted(‘eat’)=[‘a’,�
 
 54 Spiral Matrix 
 
+```
 While matrix 不停的pop 指导matrix 没了 先pop出第一行然后剩下每一行最后一个然后pop最后一行的倒叙 然后pop倒叙的每行的第一个 
+```
 
-\59. Spiral Matrix II
+59. Spiral Matrix II
 
+```
 造一个matrix matrix[I][j]=(i,j) 利用spiral matrix while matrix 每次pop 出位置 位置存那个该存的值
-
- 
-
-
+```
 
 61: Rotate List: 
 
+```
 因为做同样的操作导致重复的结果出现，用%解决，listnode可以将首尾连接成环然后用prev=None，cur=head 找到要的node然后tail.next=None就可以了。
+```
 
 76 minimum substring
 
-\81. Search in Rotated Sorted Array II
+```
 
+```
+
+81. Search in Rotated Sorted Array II
+
+```
 Binary search 变形的 先在顺序里的找找不到就在另一边
+```
 
-\88. Merge sorted array
+88. Merge sorted array
 
+```
 从大往小merge 达到in place
+```
 
 91 decode way:
 
+```
 使用dp F(x)=F(x-1)+F(x-2) F(x)=F(x-1) F(x)=F(x-2)三种情况 x为first x digitals 每次进来一个 判断和前一个是否组成1-26里的字母
+```
 
 94 Binary tree in-order traversal:
 
+```
 Left-root-Right
-
 Recursion: 先一直递归root.left然后append(root.val)然后递归root.right
+```
+
+
 
 96 Unique Binary Search Tree（DP）
 
