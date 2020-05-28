@@ -2,17 +2,17 @@
 
 22. Generate Parentheses
 
-##### ```diff
+```diff
 
-##### - red
+- red
 
-##### + green
++ green
 
-##### ! orange
+! orange
 
-##### # gray
+# gray
 
-##### ```
+```
 
 ##### 插空法 n 的情况 等于 在n-1的情况下 每个空 插一个‘（）’,所以可以用递归backtrack 直到n==1 return [‘()’]
 
