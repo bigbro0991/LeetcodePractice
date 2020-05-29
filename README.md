@@ -243,6 +243,15 @@ Swap ，recursion 先递归找到最左节点 最左节点就是新的root然后
 nums = map(str, nums). t=list(nums). t.sort(key=cmp_to_key(lambda a, b: int(b+a)-int(a+b)))
 ```
 
+186. Reverse Words in a String II
+
+```diff
+!In-place: 首先，先把整个string reverse；
+然后，遍历找到每个单词的首尾（通过空格），然后再用left=首，right=尾 互换，和第一步一样，最后得到结果
+```
+
+
+
 187. Repeated DNA Sequences
 
 ```
@@ -854,7 +863,8 @@ class Solution:
 						sub.append(num)
 				else:
 						sub[index]=num
-		dic[index].append((sum(lens if max_<num else 0 for 				lens,max_ in dic[index-1]) or 1 ,num))#dp
+		dic[index].append((sum(lens if max_<num else 0 
+		for 				lens,max_ in dic[index-1]) or 1 ,num))#dp
 		return sum(i for i,_ in dic[len(sub)-1])
 ```
 
