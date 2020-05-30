@@ -837,7 +837,41 @@ This is because at time t, A[0] + A[1] + ... + A[t-1] = W, and there are count[V
 先排序，把 num 弄成 asceding order 然后从大到小遍历，第一边的index=0 第二个边的index=i-1 这样的话 只要这个满足则 第一个边到第二个边的所有index的边都满足 加到结果里 ，之后 第二边的index-1 变小一下做重复操作，同样 不满足的话说明第一边小了，它的index+1 就可以
 ```
 
-636. Exclusive Time of Functions :
+616. Add Bold Tag in String
+
+```
+运用Trie，来查找word，返回查找到的word的最后一个字母index，append到temp res里，通过temp res 得到最后的final
+
+Class Trie():
+	def __init__(self):
+		self.data={}
+	def addword(self,word):
+		temp=self.data
+		for c in word:
+			if c not in temp:
+				break
+			i+=1
+			temp=temp[c]
+		for j in word[i:]:
+			temp[j]={}
+			temp=temp[j]
+		temp["#"]={}
+	def search(self,index,s):
+		ret=-1
+		temp=self.data
+		for i in range(index,len(s)):
+			if s[i] not in temp:
+				return ret
+			if "#" in temp[s[i]]:
+				ret=i
+			temp=temp[s[i]]
+		return ret
+		
+```
+
+
+
+637. Exclusive Time of Functions :
 
 ```
 利用stack　， stack里只存sign 是 start 的 time 和 ID: 遍历整个logs，如果是start，就append到stack里 且 stack里的最后一个 也就是前一个start的id所last的时间=现在的时间点-上次start结束的时间点。 如果是end，则pop出来上次start开始的时间点 res[id]+=time-pretime+1  且 前一个start的时间点移到此endpoint的时间点+1
@@ -945,6 +979,14 @@ root.right 是这个节点之后
 
 如果是503 直接循环两次就行
 ```
+
+1029. Two City Scheduling
+
+````
+Greedy algorthm 先添加去A和B差距越大的人，这样很好选择，肯定是去花钱少的那个，然后当i>= len//2 时候，转换选择去另一个城市。
+````
+
+
 
 1202. Smallest String With Swaps
 
