@@ -358,6 +358,31 @@ binary search 如果是complete tree 最后一层肯定是从左开始， 所以
 现在原有的string 最前面+‘+’ 记录前一个ALU 如果遇到alu 则判断上一个 根据上一个alu 来append 进入最终的stack （* 或/ 要先pop 出上一个operand 在和现在的num操作）最终返回 sum（stack）
 ```
 
+233. Number of Digit One
+
+```
+找规律，垃圾题
+class Solution:
+    def countDigitOne(self, n):
+        if n <= 0:
+            return 0
+        q, x, ans = n, 1, 0
+        while q > 0:
+            digit = q % 10
+            q //= 10
+            ans += q * x
+            print(ans)
+            if digit == 1:
+                ans += n % x + 1
+            elif digit > 1:
+                ans += x
+            print(ans)
+            x *= 10
+        return ans
+```
+
+
+
 236. Lowest common ancestor of a binary tree:
 
 ```
@@ -946,6 +971,14 @@ strictly_xincreasing=A[i]>B[i-1] and B[i]>A[i-1]
 Two Points 因为最多两个人
 ```
 
+939. Minimum Area Rectangle
+
+```
+将问题简化，如果两个点(x1,y1) (x2,y2)，作为rectangle的顶点，然后如果存在(x1,y2),(x2,y1)，则能形成rectangle，然后遍历找到最小的就好了。
+```
+
+
+
 997. Find the Town Judge
 
 ```
@@ -979,6 +1012,14 @@ root.right 是这个节点之后
 
 如果是503 直接循环两次就行
 ```
+
+1027. Longest Arithmetic Sequence
+
+```
+DP:因为要计算第i个元素和之前i-1个元素的diffrence，所以没有O(n)的方法，O(n^2). Tricks：dp数组采用每个是一个字典来记录diff的个数，下一个等一前一个diff+1.
+```
+
+
 
 1029. Two City Scheduling
 
