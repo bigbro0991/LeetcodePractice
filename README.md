@@ -378,7 +378,7 @@ class Solution:
                 ans += x
             print(ans)
             x *= 10
-        return ans
+        return an     
 ```
 
 
@@ -939,6 +939,15 @@ class Solution:
 利用stack 倒叙遍历,stack.append(i) ，如果stack[-1]里存的index 所处的值小于我所遍历到的值，那就一直pop 直到找到比我现在值大的，没有的话，就不改变ans的值
 ```
 
+735. Asteroid Collision
+
+```
+利用stack，如果是大于0，就append进来，反之如果是小于0，如果当前stack[-1]也小于0 或者stack为空，就也append进来因为撞不上，但如果stack[-1]>0 且 小于 当前asteroid的绝对值，就pop，直到pop不出来为止。若stack[-1]>0且它的值和当前asteroid的绝对值相等，就pop一次
+最终返回stack。
+```
+
+
+
 763. Partition Labels
 
 ```
@@ -1026,6 +1035,14 @@ DP:因为要计算第i个元素和之前i-1个元素的diffrence，所以没有O
 ````
 Greedy algorthm 先添加去A和B差距越大的人，这样很好选择，肯定是去花钱少的那个，然后当i>= len//2 时候，转换选择去另一个城市。
 ````
+
+1197. Minimum Knight Moves
+
+```
+BFS： trick: 转化题目，将(0,0)--->(x,y) 换成(x,y)-->(0,0) 然后使用abs(x),abs(y)，因为四个象限问题可以整合到一个象限，疑问只要绝对值相同的点去(0,0)的步数是相同的，这样去的direction也缩减到(-2,-1),(-1,-2)两个方向，每次都要取abs整合到第一象限。 
+```
+
+
 
 
 
