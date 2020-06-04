@@ -67,6 +67,21 @@ While matrix 不停的pop 指导matrix 没了 先pop出第一行然后剩下每�
 Binary search 变形的 先在顺序里的找找不到就在另一边
 ```
 
+85. Maximal Rectangle
+
+```diff
+-Every row in the matrix is viewed as the ground with some buildings on it. 
+The building height is the count of consecutive 1s from that row to above rows. 
+for every row height 记录了当前row下 一些building的高度，
+循环height的长度（trick height的长度为row长度+1 因为最后一个是0）
+利用stack 如果当前building的高度小于stk[-1]的高度 说明 有了断层，
+断层的高度h就是height[stk.pop()]
+宽度就是当前i-1-stk[-1] 这里的stk[-1] 存放着>=h 的building的index，算出长方形面积。 直至当前i的高度不在小于stk[-1]的高度。
+
+```
+
+
+
 88. Merge sorted array
 
 ```
@@ -1036,6 +1051,21 @@ DP:因为要计算第i个元素和之前i-1个元素的diffrence，所以没有O
 Greedy algorthm 先添加去A和B差距越大的人，这样很好选择，肯定是去花钱少的那个，然后当i>= len//2 时候，转换选择去另一个城市。
 ````
 
+
+
+1031. Maximum Sum of Two Non-Overlapping Subarrays
+
+```diff
+--两种情况：
+第一种 L在左 M 在右：循环L右边一直保留M长度的数组maxL=max(maxL,A[i-M]-A[i-M-L])
+第二种 L在右 M 在左 同理相反
+maxM=max(maxM,A[i-L]-A[i-L-M])
+每次循环算res
+res=max(res,maxL+A[i]-A[i-M],maxM+A[i]-A[i-L])
+```
+
+
+
 1197. Minimum Knight Moves
 
 ```
@@ -1052,5 +1082,18 @@ BFS： trick: 转化题目，将(0,0)--->(x,y) 换成(x,y)-->(0,0) 然后使用a
 
 ```
 Union find
+```
+
+
+
+1268. Search Suggestions System
+
+```PYTHON
+ans=[]
+pro=sorted(products)
+for i,c in enumerate(searchWord):
+	pro=[p for p in pro if i<len(p) and p[i]==c]
+	ans.append(pro[:3])
+return ans
 ```
 
