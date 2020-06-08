@@ -948,6 +948,14 @@ class Solution:
 判断是否两个小岛一样 [(2,3),(3,3),(2,4),(3,4)]-(2,3)=[(0,0),(1,0),(1,0),(1,1)]
 ```
 
+721. Accounts Merge
+
+```
+Union Find: parent[] 的index 作为每个email的 parent，如果同样的email 出现 则 union 当前的index 和 dic里email之前的parent index
+```
+
+
+
 739. Daily Temperatures
 
 ```
@@ -1066,6 +1074,19 @@ res=max(res,maxL+A[i]-A[i-M],maxM+A[i]-A[i-L])
 
 
 
+1152. Analyze User Website Visit Pattern
+
+```
+首先用dic--->list 收集每个人查过的关键字，利用sort 和zip 进行对time的排序
+然后 利用 Counter去 计算每个人每个 3长度的sequence出现的次数 --->
+利用 itertools.combinations(x,3) 
+然后利用sum把每个人记录的counter 合并，操作是 sum(每个人counter的list， colllections.Counter()) 语法表示通过什么来sum。
+最终找到个数最多的且字母表顺序最小的。利用min min(t,key=lambda x: (-t[x],x))
+
+```
+
+
+
 1197. Minimum Knight Moves
 
 ```
@@ -1084,9 +1105,41 @@ BFS： trick: 转化题目，将(0,0)--->(x,y) 换成(x,y)-->(0,0) 然后使用a
 Union find
 ```
 
+1242. Web Crawler Multithreaded
+
+```
+python 多线程：
+from threading import Thread, Lock
+with 语句适用于对资源进行访问的场合，确保不管使用过程中是否发生异常都会执行必要的“清理”操作，释放资源，比如文件使用后自动关闭／线程中锁的自动获取和释放等。 
+
+try:													with open("１.txt") as file:
+    f = open('xxx')							 data = file.read()
+except:
+    print('fail to open')
+    exit(-1)
+try:
+    do something
+except:
+    do something
+finally:
+    f.close()
+两边相等
+所以 with Lock() 不用解锁了
+
+```
+
+```
+threads = [Thread(target=thread_func, args=(web,)) for web in pool]
+for thread in threads:
+	thread.start()---->开启线程
+for thread in threads:
+	thread.join()----->等待所有线程完成
+可以看到，join方法本身是通过wait方法来实现等待的，这里判断如果线程还在运行中的话，则继续等待，如果指定时间到了，或者线程运行完成了，则代码继续向下执行，调用线程就可以执行后面的逻辑了。
+```
 
 
-1268. Search Suggestions System
+
+1242. Search Suggestions System
 
 ```PYTHON
 ans=[]
