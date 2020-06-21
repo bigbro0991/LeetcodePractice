@@ -6,6 +6,16 @@
 -红色 -> 不熟悉
 ```
 
+
+
+5. Longest Palindromic Substring
+
+```
+!O(n)：设置maxL和maxS 遍历一遍,每次遍历判断两次，每次判断i-maxL到i 是否对称 和 i-maxL-1到i是否对称 更新maxL 和 maxS
+```
+
+
+
 22. Generate Parentheses
 
 ```diff
@@ -1033,6 +1043,14 @@ sliding window
 root.right 是这个节点之后
 ```
 
+1011. Capacity To Ship Packages Within D Days
+
+```
+binary search : 二分法去找到那个capacity 设立一个函数屈判断capacity可不可以 不可以的话说明小了 可以的话就往小里设置
+```
+
+
+
 1019. Next Greater Node In Linked List
 
 ```
@@ -1071,6 +1089,19 @@ maxM=max(maxM,A[i-L]-A[i-L-M])
 每次循环算res
 res=max(res,maxL+A[i]-A[i-M],maxM+A[i]-A[i-L])
 ```
+
+1114. Print in Order
+
+```
+threading.Lock() 设置两个锁一个用于一二线程 一个用于二三线程
+demo:
+lock=threading.Lock()
+lock.acquire() ##mutex设置为0 上锁
+lock.release() ##mutex设置为1 释放
+
+```
+
+
 
 
 
